@@ -5,8 +5,8 @@ namespace StatamicRadPack\Runway\Tests\Http\Controllers\CP;
 use PHPUnit\Framework\Attributes\Test;
 use Statamic\Facades\Folder;
 use Statamic\Facades\User;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class PublishedModelsControllerTest extends TestCase
 {

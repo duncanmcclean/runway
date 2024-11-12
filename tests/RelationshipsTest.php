@@ -7,8 +7,8 @@ use PHPUnit\Framework\Attributes\Test;
 use Statamic\Facades\Blueprint;
 use Statamic\Fields\Blueprint as FieldsBlueprint;
 use StatamicRadPack\Runway\Relationships;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class RelationshipsTest extends TestCase
 {

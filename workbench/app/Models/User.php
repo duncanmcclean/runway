@@ -1,6 +1,6 @@
 <?php
 
-namespace StatamicRadPack\Runway\Tests\Fixtures\Models;
+namespace Workbench\App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use StatamicRadPack\Runway\Traits\HasRunwayResource;

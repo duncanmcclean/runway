@@ -9,9 +9,9 @@ use PHPUnit\Framework\Attributes\Test;
 use Statamic\Facades\Blink;
 use Statamic\Facades\User;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class ResourceListingControllerTest extends TestCase
 {
@@ -55,8 +55,8 @@ class ResourceListingControllerTest extends TestCase
     #[Test]
     public function listing_rows_are_ordered_as_per_config()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.order_by', 'id');
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.order_by_direction', 'desc');
+        Config::set('runway.resources.Workbench\App\Models\Post.order_by', 'id');
+        Config::set('runway.resources.Workbench\App\Models\Post.order_by_direction', 'desc');
 
         Runway::discoverResources();
 
@@ -222,7 +222,7 @@ class ResourceListingControllerTest extends TestCase
             'fields' => ['title', 'slug'],
         ]);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.search_index', 'test_search_index');
+        Config::set('runway.resources.Workbench\App\Models\Post.search_index', 'test_search_index');
 
         Runway::discoverResources();
 

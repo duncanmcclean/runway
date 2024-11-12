@@ -10,10 +10,10 @@ use Statamic\Facades\Role;
 use Statamic\Facades\User;
 use Statamic\Facades\UserGroup;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\User as UserModel;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
+use Workbench\App\Models\User as UserModel;
 
 class ResourceControllerTest extends TestCase
 {

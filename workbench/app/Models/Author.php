@@ -1,12 +1,12 @@
 <?php
 
-namespace StatamicRadPack\Runway\Tests\Fixtures\Models;
+namespace Workbench\App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Statamic\Facades\Blink;
-use StatamicRadPack\Runway\Tests\Fixtures\Database\Factories\AuthorFactory;
 use StatamicRadPack\Runway\Traits\HasRunwayResource;
+use Workbench\Database\Factories\AuthorFactory;
 
 class Author extends Model
 {

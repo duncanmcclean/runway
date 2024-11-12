@@ -5,9 +5,9 @@ namespace StatamicRadPack\Runway\Tests\Console\Commands;
 use Illuminate\Support\Facades\Config;
 use PHPUnit\Framework\Attributes\Test;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class ListResourcesTest extends TestCase
 {

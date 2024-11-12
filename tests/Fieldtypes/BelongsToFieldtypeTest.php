@@ -12,8 +12,8 @@ use Statamic\Fields\Field;
 use Statamic\Http\Requests\FilteredRequest;
 use StatamicRadPack\Runway\Fieldtypes\BelongsToFieldtype;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
 
 class BelongsToFieldtypeTest extends TestCase
 {
@@ -66,8 +66,8 @@ class BelongsToFieldtypeTest extends TestCase
     #[Test]
     public function can_get_index_items_in_order_specified_in_runway_config()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Author.order_by', 'name');
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Author.order_by_direction', 'desc');
+        Config::set('runway.resources.Workbench\App\Models\Author.order_by', 'name');
+        Config::set('runway.resources.Workbench\App\Models\Author.order_by_direction', 'desc');
 
         Author::factory()->create(['name' => 'Scully']);
         Author::factory()->create(['name' => 'Jake Peralta']);
@@ -150,7 +150,7 @@ class BelongsToFieldtypeTest extends TestCase
             'fields' => ['name'],
         ]);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Author.search_index', 'test_search_index');
+        Config::set('runway.resources.Workbench\App\Models\Author.search_index', 'test_search_index');
 
         Runway::discoverResources();
 

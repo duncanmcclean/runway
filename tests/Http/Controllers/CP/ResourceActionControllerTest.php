@@ -5,8 +5,8 @@ namespace StatamicRadPack\Runway\Tests\Http\Controllers\CP;
 use PHPUnit\Framework\Attributes\Test;
 use Statamic\Actions\Action;
 use Statamic\Facades\User;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class ResourceActionControllerTest extends TestCase
 {

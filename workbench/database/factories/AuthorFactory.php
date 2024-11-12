@@ -1,9 +1,9 @@
 <?php
 
-namespace StatamicRadPack\Runway\Tests\Fixtures\Database\Factories;
+namespace Workbench\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
+use Workbench\App\Models\Author;
 
 class AuthorFactory extends Factory
 {

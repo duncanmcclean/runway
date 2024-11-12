@@ -16,12 +16,10 @@
     "autoload-dev": {
         "psr-4": {
             "StatamicRadPack\\Runway\\Tests\\": "tests",
-            "StatamicRadPack\\Runway\\Tests\\Fixtures\\": "tests/__fixtures__/app",
-            "StatamicRadPack\\Runway\\Tests\\Fixtures\\Database\\Factories\\": "tests/__fixtures__/database/factories"
-        },
-        "classmap": [
-            "tests/__fixtures__/database"
-        ]
+            "Workbench\\App\\": "workbench/app/",
+            "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+            "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+        }
     },
     "extra": {
         "statamic": {
@@ -63,5 +61,26 @@
             "composer/package-versions-deprecated": true
         }
     },
-    "minimum-stability": "alpha"
+    "minimum-stability": "alpha",
+    "scripts": {
+        "post-autoload-dump": [
+            "@clear",
+            "@prepare"
+        ],
+        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": "@php vendor/bin/testbench workbench:build --ansi",
+        "serve": [
+            "Composer\\Config::disableProcessTimeout",
+            "@build",
+            "@php vendor/bin/testbench serve --ansi"
+        ],
+        "lint": [
+            "@php vendor/bin/pint --ansi",
+            "@php vendor/bin/phpstan analyse --verbose --ansi"
+        ],
+        "test": [
+            "@php vendor/bin/phpunit"
+        ]
+    }
 }

@@ -4,6 +4,7 @@ namespace StatamicRadPack\Runway\Tests;
 
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Orchestra\Testbench\Concerns\WithWorkbench;
 use Statamic\Facades\Blueprint;
 use Statamic\Stache\Stores\UsersStore;
 use Statamic\Statamic;
@@ -12,7 +13,7 @@ use StatamicRadPack\Runway\ServiceProvider;
 
 abstract class TestCase extends AddonTestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithWorkbench;
 
     protected string $addonServiceProvider = ServiceProvider::class;
 
@@ -22,8 +23,8 @@ abstract class TestCase extends AddonTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(__DIR__.'/__fixtures__/database/migrations');
-        $this->runLaravelMigrations();
+//        $this->loadMigrationsFrom(__DIR__.'/__fixtures__/database/migrations');
+//        $this->runLaravelMigrations();
     }
 
     protected function resolveApplicationConfiguration($app)
@@ -33,10 +34,6 @@ abstract class TestCase extends AddonTestCase
         $app['config']->set('app.key', 'base64:'.base64_encode(
             Encrypter::generateKey($app['config']['app.cipher'])
         ));
-
-        $app['config']->set('view.paths', [
-            __DIR__.'/__fixtures__/resources/views',
-        ]);
 
         $app['config']->set('statamic.api.enabled', true);
         $app['config']->set('statamic.editions.pro', true);

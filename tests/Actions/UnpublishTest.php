@@ -11,8 +11,8 @@ use Statamic\Facades\User;
 use Statamic\Testing\Concerns\PreventsSavingStacheItemsToDisk;
 use StatamicRadPack\Runway\Actions\Unpublish;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class UnpublishTest extends TestCase
 {
@@ -43,7 +43,7 @@ class UnpublishTest extends TestCase
     #[Test]
     public function is_not_visible_to_eloquent_model_when_resource_is_read_only()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.read_only', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.read_only', true);
         Runway::discoverResources();
 
         $visibleTo = (new Unpublish)->context([])->visibleTo(Post::factory()->create());

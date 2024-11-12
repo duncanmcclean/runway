@@ -15,9 +15,9 @@ use Statamic\Http\Requests\FilteredRequest;
 use Statamic\Testing\Concerns\PreventsSavingStacheItemsToDisk;
 use StatamicRadPack\Runway\Fieldtypes\HasManyFieldtype;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class HasManyFieldtypeTest extends TestCase
 {
@@ -136,8 +136,8 @@ class HasManyFieldtypeTest extends TestCase
     #[Test]
     public function can_get_index_items_in_order_specified_in_runway_config()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.order_by', 'title');
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.order_by_direction', 'asc');
+        Config::set('runway.resources.Workbench\App\Models\Post.order_by', 'title');
+        Config::set('runway.resources.Workbench\App\Models\Post.order_by_direction', 'asc');
 
         Runway::discoverResources();
 
@@ -225,7 +225,7 @@ class HasManyFieldtypeTest extends TestCase
             'fields' => ['title', 'slug'],
         ]);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.search_index', 'test_search_index');
+        Config::set('runway.resources.Workbench\App\Models\Post.search_index', 'test_search_index');
 
         Runway::discoverResources();
 

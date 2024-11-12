@@ -1,14 +1,14 @@
 <?php
 
-namespace StatamicRadPack\Runway\Tests\Fixtures\Models;
+namespace Workbench\App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Statamic\Facades\Blink;
 use StatamicRadPack\Runway\Routing\Traits\RunwayRoutes;
-use StatamicRadPack\Runway\Tests\Fixtures\Database\Factories\PostFactory;
 use StatamicRadPack\Runway\Traits\HasRunwayResource;
+use Workbench\Database\Factories\PostFactory;
 
 class Post extends Model
 {

@@ -73,7 +73,7 @@ class ResourceTest extends TestCase
     #[Test]
     public function can_get_eager_loading_relationships_from_config()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.with', [
+        Config::set('runway.resources.Workbench\App\Models\Post.with', [
             'author',
         ]);
 
@@ -103,7 +103,7 @@ class ResourceTest extends TestCase
     #[Test]
     public function can_get_configured_singular()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.singular', 'Bibliothek');
+        Config::set('runway.resources.Workbench\App\Models\Post.singular', 'Bibliothek');
 
         Runway::discoverResources();
 
@@ -129,7 +129,7 @@ class ResourceTest extends TestCase
     #[Test]
     public function can_get_configured_plural()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.plural', 'Bibliotheken');
+        Config::set('runway.resources.Workbench\App\Models\Post.plural', 'Bibliotheken');
 
         Runway::discoverResources();
 
@@ -244,8 +244,8 @@ class ResourceTest extends TestCase
         Config::set('statamic.editions.pro', true);
         Config::set('statamic.revisions.enabled', true);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.published', true);
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.revisions', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.published', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.revisions', true);
 
         Runway::discoverResources();
 
@@ -260,8 +260,8 @@ class ResourceTest extends TestCase
         Config::set('statamic.editions.pro', true);
         Config::set('statamic.revisions.enabled', false);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.published', true);
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.revisions', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.published', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.revisions', true);
 
         Runway::discoverResources();
 
@@ -276,8 +276,8 @@ class ResourceTest extends TestCase
         Config::set('statamic.editions.pro', false);
         Config::set('statamic.revisions.enabled', true);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.published', true);
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.revisions', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.published', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.revisions', true);
 
         Runway::discoverResources();
 
@@ -292,8 +292,8 @@ class ResourceTest extends TestCase
         Config::set('statamic.editions.pro', true);
         Config::set('statamic.revisions.enabled', true);
 
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.published', false);
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.revisions', true);
+        Config::set('runway.resources.Workbench\App\Models\Post.published', false);
+        Config::set('runway.resources.Workbench\App\Models\Post.revisions', true);
 
         Runway::discoverResources();
 

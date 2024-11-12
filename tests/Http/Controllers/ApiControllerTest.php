@@ -4,8 +4,8 @@ namespace StatamicRadPack\Runway\Tests\Http\Controllers;
 
 use PHPUnit\Framework\Attributes\Test;
 use Statamic\Facades\Config;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class ApiControllerTest extends TestCase
 {

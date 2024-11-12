@@ -1,11 +1,11 @@
 <?php
 
-namespace StatamicRadPack\Runway\Tests\Fixtures\Database\Factories;
+namespace Workbench\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class PostFactory extends Factory
 {

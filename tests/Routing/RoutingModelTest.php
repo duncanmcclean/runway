@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Config;
 use PHPUnit\Framework\Attributes\Test;
 use StatamicRadPack\Runway\Routing\RoutingModel;
 use StatamicRadPack\Runway\Runway;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class RoutingModelTest extends TestCase
 {
@@ -87,7 +87,7 @@ class RoutingModelTest extends TestCase
     #[Test]
     public function can_get_template()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.template', 'posts.show');
+        Config::set('runway.resources.Workbench\App\Models\Post.template', 'posts.show');
         Runway::discoverResources();
 
         $post = Post::factory()->createQuietly();
@@ -101,7 +101,7 @@ class RoutingModelTest extends TestCase
     #[Test]
     public function can_get_layout()
     {
-        Config::set('runway.resources.StatamicRadPack\Runway\Tests\Fixtures\Models\Post.layout', 'layouts.post');
+        Config::set('runway.resources.Workbench\App\Models\Post.layout', 'layouts.post');
         Runway::discoverResources();
 
         $post = Post::factory()->createQuietly();

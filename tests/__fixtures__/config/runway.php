@@ -1,8 +1,8 @@
 <?php
 
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\User;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
+use Workbench\App\Models\User;
 
 return [
     'resources' => [

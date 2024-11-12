@@ -6,8 +6,8 @@ use Illuminate\Support\Carbon;
 use PHPUnit\Framework\Attributes\Test;
 use Statamic\Facades\Folder;
 use Statamic\Facades\User;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Post;
 
 class ModelRevisionsControllerTest extends TestCase
 {

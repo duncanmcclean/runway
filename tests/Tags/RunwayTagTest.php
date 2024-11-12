@@ -9,9 +9,9 @@ use Statamic\Facades\Blueprint;
 use Statamic\Fields\Value;
 use StatamicRadPack\Runway\Runway;
 use StatamicRadPack\Runway\Tags\RunwayTag;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Author;
-use StatamicRadPack\Runway\Tests\Fixtures\Models\Post;
 use StatamicRadPack\Runway\Tests\TestCase;
+use Workbench\App\Models\Author;
+use Workbench\App\Models\Post;
 
 class RunwayTagTest extends TestCase
 {
