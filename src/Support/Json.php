@@ -15,7 +15,6 @@ class Json
             return false;
         }
 
-        // TODO: Replace this with json_validate when dropping support for PHP 8.2.
-        return is_array(json_decode($value, true));
+        return json_validate($value);
     }
 }

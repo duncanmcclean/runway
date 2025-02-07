@@ -144,12 +144,7 @@ class ImportCollection extends Command
 
     private function createEloquentModel(): self
     {
-        // Casts are different in Laravel 10, so we need to use a different model stub.
-        $modelStub = version_compare(app()->version(), '11.0.0', '>')
-            ? __DIR__.'/stubs/model.stub'
-            : __DIR__.'/stubs/model-l10.stub';
-
-        $modelContents = Str::of(File::get($modelStub))
+        $modelContents = Str::of(File::get(__DIR__.'/stubs/model.stub'))
             ->replace('{{ namespace }}', 'App\Models')
             ->replace('{{ class }}', $this->modelName)
             ->replace('{{ traits }}', $this->collection->routes()->isNotEmpty() ? 'HasRunwayResource, RunwayRoutes' : 'HasRunwayResource')

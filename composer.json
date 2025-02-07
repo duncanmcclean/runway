@@ -39,19 +39,19 @@
         }
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "ajthinking/archetype": "^1.0.3 || ^2.0",
-        "laravel/framework": "^10.25.0 || ^11.3",
+        "laravel/framework": "^11.3 || ^12.0",
         "pixelfear/composer-dist-plugin": "^0.1.5",
         "spatie/ignition": "^1.15",
         "spatie/invade": "^2.1",
-        "statamic/cms": "^5.41",
+        "statamic/cms": "dev-master",
         "stillat/proteus": "^4.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
         "spatie/test-time": "^1.2",
-        "orchestra/testbench": "^8.28 || ^9.6.1",
+        "orchestra/testbench": "^9.2 || ^10.0",
         "phpunit/phpunit": "^10.5.35"
     },
     "config": {
@@ -63,5 +63,5 @@
             "composer/package-versions-deprecated": true
         }
     },
-    "minimum-stability": "alpha"
+    "minimum-stability": "dev"
 }
