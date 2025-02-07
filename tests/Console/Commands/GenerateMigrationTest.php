@@ -19,7 +19,7 @@ class GenerateMigrationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -37,7 +37,7 @@ class GenerateMigrationTest extends TestCase
         });
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         parent::tearDown();
 

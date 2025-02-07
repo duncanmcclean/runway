@@ -9,7 +9,7 @@ use Workbench\App\Models\Post;
 
 class ApiControllerTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

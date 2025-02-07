@@ -21,7 +21,7 @@ class BelongsToFieldtypeTest extends TestCase
 
     protected BelongsToFieldtype $fieldtype;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

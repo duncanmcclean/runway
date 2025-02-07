@@ -13,7 +13,7 @@ class ModelRevisionsControllerTest extends TestCase
 {
     private $dir;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -22,7 +22,7 @@ class ModelRevisionsControllerTest extends TestCase
         config(['statamic.revisions.path' => $this->dir]);
     }
 
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         Folder::delete($this->dir);
 

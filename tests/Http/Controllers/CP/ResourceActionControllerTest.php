@@ -10,7 +10,7 @@ use Workbench\App\Models\Post;
 
 class ResourceActionControllerTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 

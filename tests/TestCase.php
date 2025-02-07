@@ -23,8 +23,8 @@ abstract class TestCase extends AddonTestCase
     {
         parent::setUp();
 
-//        $this->loadMigrationsFrom(__DIR__.'/__fixtures__/database/migrations');
-//        $this->runLaravelMigrations();
+        //        $this->loadMigrationsFrom(__DIR__.'/__fixtures__/database/migrations');
+        //        $this->runLaravelMigrations();
     }
 
     protected function resolveApplicationConfiguration($app)
