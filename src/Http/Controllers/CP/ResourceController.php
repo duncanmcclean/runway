@@ -2,6 +2,7 @@
 
 namespace StatamicRadPack\Runway\Http\Controllers\CP;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Statamic\CP\Breadcrumbs;
 use Statamic\CP\Column;
@@ -9,7 +10,10 @@ use Statamic\Exceptions\NotFoundHttpException;
 use Statamic\Facades\Action;
 use Statamic\Facades\Scope;
 use Statamic\Facades\User;
+use Statamic\Fields\Field;
 use Statamic\Http\Controllers\CP\CpController;
+use StatamicRadPack\Runway\Fieldtypes\BelongsToFieldtype;
+use StatamicRadPack\Runway\Fieldtypes\HasManyFieldtype;
 use StatamicRadPack\Runway\Http\Requests\CP\CreateRequest;
 use StatamicRadPack\Runway\Http\Requests\CP\EditRequest;
 use StatamicRadPack\Runway\Http\Requests\CP\IndexRequest;
@@ -193,6 +197,8 @@ class ResourceController extends CpController
                 ->save();
 
             $model = $model->fromWorkingCopy();
+
+            $this->saveNonRevisableFields($resource, $model);
         } else {
             $saved = DB::transaction(function () use ($model, $request) {
                 $model->save();
@@ -212,5 +218,21 @@ class ResourceController extends CpController
             ]),
             'saved' => $saved,
         ];
+    }
+
+    private function saveNonRevisableFields(Resource $resource, Model $model): void
+    {
+        $dbVersion = $model->fresh();
+
+        $fields = $resource->blueprint()->fields()->all()
+            ->reject(fn (Field $field) => $field->isRevisable())
+            ->reject(fn (Field $field) => $field->fieldtype() instanceof BelongsToFieldtype)
+            ->reject(fn (Field $field) => $field->fieldtype() instanceof HasManyFieldtype);
+
+        if ($fields->isNotEmpty()) {
+            $fields->each(fn ($ignore, string $fieldHandle) => $dbVersion->setAttribute($fieldHandle, $model->{$fieldHandle}));
+
+            $dbVersion->save();
+        }
     }
 }

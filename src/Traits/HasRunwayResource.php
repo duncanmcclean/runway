@@ -199,6 +199,7 @@ trait HasRunwayResource
     protected function revisionAttributes(): array
     {
         $data = $this->runwayResource()->blueprint()->fields()->setParent($this)->all()
+            ->filter(fn (Field $field) => $field->isRevisable())
             ->reject(fn (Field $field) => $field->fieldtype() instanceof Section)
             ->reject(fn (Field $field) => $field->visibility() === 'computed')
             ->reject(fn (Field $field) => $field->get('save', true) === false)
@@ -278,7 +279,15 @@ trait HasRunwayResource
         if ($this->revisionsEnabled()) {
             $model = $this->publishWorkingCopy($options);
 
-            Relationships::for($model)->with($model->runwayRelationships)->save();
+            // if there are non-revisable HasMany fields, don't save them
+            $except = $model->runwayResource()->blueprint()->fields()->all()
+                ->reject(fn (Field $field) => $field->isRevisable())
+                ->filter(fn (Field $field) => $field->fieldtype() instanceof HasManyFieldtype)
+                ->map(fn (Field $field) => $field->handle())
+                ->keys()
+                ->all();
+
+            Relationships::for($model)->with($model->runwayRelationships)->except($except)->save();
 
             return $model;
         }

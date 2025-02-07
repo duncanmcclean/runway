@@ -13,11 +13,18 @@ use StatamicRadPack\Runway\Fieldtypes\HasManyFieldtype;
 
 class Relationships
 {
-    public function __construct(protected Model $model, protected array $values = []) {}
+    public function __construct(protected Model $model, protected array $values = [], protected array $except = []) {}
 
     public static function for(Model $model): self
     {
         return new static($model);
+    }
+
+    public function except(array $except): self
+    {
+        $this->except = $except;
+
+        return $this;
     }
 
     public function with(array $values): self
@@ -31,6 +38,7 @@ class Relationships
     {
         $this->model->runwayResource()->blueprint()->fields()->all()
             ->reject(fn (Field $field) => $field->visibility() === 'computed' || ! $field->get('save', true))
+            ->reject(fn (Field $field) => in_array($field->handle(), $this->except))
             ->filter(fn (Field $field) => $field->fieldtype() instanceof HasManyFieldtype)
             ->each(function (Field $field): void {
                 $relationshipName = $this->model->runwayResource()->eloquentRelationships()->get($field->handle());
